@@ -1,11 +1,13 @@
-const fastify = require('fastify')({ logger: true });
+require('dotenv').config();
+
+const fastify = require('fastify')({ logger: false });
 
 // Registrera @fastify/routes
 fastify.register(require('@fastify/routes'));
 
 // MongoDB-anslutning
 fastify.register(require('@fastify/mongodb'), {
-  url: "mongodb+srv://philiptelberg:Test123@cluster0.w193dzc.mongodb.net/discs?retryWrites=true&w=majority"
+  url: process.env.MONGO_URL
 });
 
 // Registrera rutter
@@ -14,7 +16,6 @@ fastify.register(require('./routes/discs'), { prefix: '/discs' });
 fastify.ready(err => {
   if (err) throw err;
 
-  console.log(fastify.routes); // Lista alla rutter i applikationen
 });
 
 // Starta servern

@@ -1,3 +1,5 @@
+// Validera att data uppfyller vissa krav för att få lagras i databasen
+
 const discsSchema = {
     type: 'object',
     required: ['brand', 'model', 'weight', 'tested'],
