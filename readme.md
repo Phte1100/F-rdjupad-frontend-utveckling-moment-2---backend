@@ -39,7 +39,7 @@ För att ansluta till databasen.
 Logga alla Routes under utvecklingen.
 
 ## Klona repot
-git clone https://github.com/Phte1100/Fullstack---moment-2.git
+git clone https://github.com/Webbutvecklings-programmet/moment-2-backend-ramverk-Phte1100
 
 
 
