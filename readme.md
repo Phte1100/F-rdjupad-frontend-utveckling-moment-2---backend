@@ -38,5 +38,11 @@ För att ansluta till databasen.
 ### @fastify/routes
 Logga alla Routes under utvecklingen.
 
+## Klona repot
+git clone https://github.com/Phte1100/Fullstack---moment-2.git
+
+
+
+
 Skapad av Philip Telberg
 
