@@ -10,8 +10,8 @@ const discsModel = (db) => {
         return await collection.find().toArray();
       },
       getDiscById: async (id) => {
-        return await collection.findOne({ _id: new db.ObjectId(id) });
-      },
+        return await collection.findOne({ _id: id });
+    },
       addDisc: async (discData) => {
         // insertOne lägger till en ny disc i databasen
         return await collection.insertOne(discData);

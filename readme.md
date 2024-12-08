@@ -15,6 +15,7 @@ Jag har skapat ett CRUD-API som anslut till MongoDB och använder backend-ramver
 |Metod  |Ändpunkt          |Beskrivning                                                                                       |
 |-------|------------------|--------------------------------------------------------------------------------------------------|
 |GET    |/discs/           |Hämtar alla inlägg.                                                                               |
+|GET    |/discs/:ID        |Hämtar disc med specifikt ID                                                                      |
 |POST   |/discs/           |*Skapar nytt inlägg                                                                               |
 |PUT    |/discs/:ID        |Uppdaterar inlägg med angivet ID.                                                                 |
 |DELETE |/discs/:ID        |Raderar inlägg med angivet ID.                                                                    |

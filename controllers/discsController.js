@@ -10,17 +10,23 @@ const discsController = (discModel) => {
       // Hämta en specifik disc med ID
       getDiscById: async (request, reply) => {
         try {
-          const disc = await discModel.getDiscById(request.params.id);
-          if (!disc) {
-            return reply.status(404).send({ error: 'Disc not found' });
-            // Om ingen disc hittas = 404-fel
-          }
-          return reply.send(disc);
+            // Konvertera ID:t till ett MongoDB ObjectId
+            const id = new ObjectId(request.params.id);
+    
+            // Hämta discen med hjälp av modellen
+            const disc = await discModel.getDiscById(id);
+            if (!disc) {
+                // Om ingen disc hittas = 404-fel
+                return reply.status(404).send({ error: 'Disc not found' });
+            }
+    
+            // Returnera discen om den hittas
+            return reply.send(disc);
         } catch (error) {
-          return reply.status(400).send({ error: 'Invalid ID format' });
-          // Fel format = 400-fel
+            // Returnera felmeddelande vid ogiltigt ID-format
+            return reply.status(400).send({ error: 'Invalid ID format' });
         }
-      },
+    },
       addDisc: async (request, reply) => {
         // Validerar att alla obligatoriska fält finns
         const { brand, model, weight, tested } = request.body;
