@@ -10,6 +10,11 @@ fastify.register(require('@fastify/mongodb'), {
   url: process.env.MONGO_URL
 });
 
+// Lägg till CORS-plugin
+fastify.register(require('@fastify/cors'), { 
+  origin: true // Tillåt alla ursprung, eller ange din frontend-URL
+});
+
 // Registrera rutter
 fastify.register(require('./routes/discs'), { prefix: '/discs' });
 
