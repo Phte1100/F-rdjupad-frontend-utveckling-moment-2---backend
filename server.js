@@ -16,7 +16,7 @@ fastify.register(require('@fastify/cors'), {
 });
 
 // Registrera rutter
-fastify.register(require('./routes/discs'), { prefix: '/discs' });
+fastify.register(require('./routes/todos'), { prefix: '/todos' });
 
 fastify.ready(err => {
   if (err) throw err;
