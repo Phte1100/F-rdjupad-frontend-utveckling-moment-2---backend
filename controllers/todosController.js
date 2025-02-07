@@ -23,15 +23,20 @@ const todosController = (todoModel) => {
       addTodo: async (request, reply) => {
         const { title, desc, status } = request.body;
 
-        // Validera att alla obligatoriska fält finns
+        // Validera att alla fält finns
         if (!title || !desc || !status) {
-          return reply.status(400).send({ error: 'Title, description, and status are required' });
+            return reply.status(400).send({ error: 'Title, description, and status are required' });
         }
 
-        // Skapa todo
-        const result = await todoModel.addTodo({ title, desc, status });
+        // Lägg till unikt `_id`
+        const newTodo = { _id: new ObjectId(), title, desc, status };
+
+        console.log("Skapar todo:", newTodo);
+
+        // Skapa todo i databasen
+        const result = await todoModel.addTodo(newTodo);
         return reply.status(201).send(result);
-      },
+    },
 
       updateTodo: async (request, reply) => {
         try {
